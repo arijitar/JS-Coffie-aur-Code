@@ -14,6 +14,8 @@ Array
 Object
 Functions
 */
+
+
 const score = 100
 const scoreValue = 100.3
 
@@ -43,3 +45,30 @@ console.log(typeof bigNumber);
 
 let v = myFunc();
 console.log(v);
+
+
+/* ******************************* Memory Allocation ***************************************************************
+   1.Stack(Primitive)
+   2.Heap (Non-Primitive)
+*/
+
+let myYoutubeName = "ArijitRoydotcom"
+
+let anotherName = myYoutubeName
+
+anotherName = "Coffie Aur Code"
+
+console.log(myYoutubeName);
+console.log(anotherName);
+
+let userOne = {
+    email: "user@gmail.com",
+    Name: "Arijit",
+    UpI: "user@ybl"
+}
+let userTwo = userOne
+
+userTwo.email = "User@outlook.com"
+
+console.log(userOne.email);
+console.log(userTwo.email);
