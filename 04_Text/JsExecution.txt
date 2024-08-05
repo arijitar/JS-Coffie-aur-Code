@@ -1,0 +1,62 @@
+JavaScript Execution Context
+
+1. Global Execution Context [{}], global context is stored inside 'this' variable
+2. Function Execution Context
+3. Eval Excution Context
+
+How does JavaScript code being execute in two phases
+[{}] 1. Memory Creation phases
+     2. Execution phase
+
+ Example: { let val1 = 10
+            let val2 = 5
+            function addNum(num1, num2){
+              let total = num1 + num2
+              return total
+            }
+            let result1 = addNum(val1, val2)
+            let result2 = addNum(10, 2)
+           }
+Steps: 1. Global execution -allocated in 'this'variable
+       2.Memory phase
+          i.: first cycle - {val1 -> undefined
+             val2 -> undefined
+             addNum -> function defination
+             result1 -> undefined
+             result2 -> undefined
+             }
+        3.Execution phase -{
+            val1 <- 10
+            val2 <- 5
+            addNum -> { creating a new executional context / a box :
+                           inside a box:
+                             i. new executional context/ new environment
+                             ii.execution thread - > {
+                                                   i.Memory phase
+                                                      val1 -> undefined 
+                                                      val2 -> undefined
+                                                      total-> undefined
+                                                  ii.Execution context 
+                                                      num1 -> 10
+                                                      num2 -> 5
+                                                      total -> 15 /* this total value will return to global executional context.
+                                                 }
+                      } 
+                      After completing its work the executional context automatically deleted.
+            result1 -> 15
+            result2 -> { Crating a new executional environment/ a box
+                            inside the box :
+                             1. New variable environment
+                             2. Thread -> {
+                                            i. Memory phase
+                                                val1 -> undefined 
+                                                val2 -> undefined
+                                                total-> undefined
+                                            ii.Execution phase
+                                                num1 -> 20
+                                                num2 -> 6
+                                                total-> 26 /* this total value will return to global executional context.
+                             }
+                       }
+                       After completing its work the executional context automatically deleted.   
+        }

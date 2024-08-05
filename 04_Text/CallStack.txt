@@ -1,0 +1,8 @@
+call stack is stack : a memory or a section of memory in a computer 
+for temporary storage in which the last item stored is the first retrieved
+
+suppose we have a nested function 'one()', and inside 'two()' and inside 'three()'
+
+so, in the stack memory first one() will be push then two() and then three()
+and we know that in the stack memory Last in First out(LIFO) process happens. 
+so, three() would be poped out first then two() and then one()

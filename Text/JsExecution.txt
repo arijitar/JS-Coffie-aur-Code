@@ -1,5 +1,0 @@
-JavaScript Execution Context
-
-1. Global Execution Context [{}], global context is stored inside 'this' variable
-2. Function Execution Context
-3. Eval Excution Context
