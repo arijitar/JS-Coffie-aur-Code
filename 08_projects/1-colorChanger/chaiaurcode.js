@@ -15,6 +15,9 @@ btns.forEach((btn)=>{
         if(event.target.id == 'blue'){
             bdy.style.backgroundColor = event.target.id;
         }
+        if(event.target.id == 'yellow'){
+            bdy.style.backgroundColor = event.target.id;
+        }
         if(event.target.id == 'purple'){
             bdy.style.backgroundColor = event.target.id;
         }
