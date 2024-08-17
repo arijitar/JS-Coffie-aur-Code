@@ -10,16 +10,55 @@
     <div>
         <ul id="image">
             <li><img width="200px" src="./photos/pexels-iriser-1366957.jpg" alt="" id="vegas"></li>
-            <li><img width="200px" src="./photos/pexels-giorgio-de-angelis-482403-1413412.jpg" alt="bike" id=""></li>
+            <li><img width="200px" src="./photos/pexels-giorgio-de-angelis-482403-1413412.jpg" alt="" id="bike"></li>
             <li><img width="200px" src="./photos/pexels-eberhardgross-691668 (1).jpg" alt="" id="mountain"></li>
             <li><img width="200px" src="./photos/pexels-maxfrancis-2246476.jpg" alt="" id="city"></li>
+            <li><a style="color:aliceblue" href="https://google.com" id="google">Google</a></li>
         </ul>
     </div>
 </body>
 <script>
-    // document.getElementById('owl').onclick = function(){
-    //     alert('Owl clicked')
-    // }
-    document.getElementById('owl').addEventListener('')
+// document.getElementById('vegas').onclick = function(){
+//     alert("vegas clicked")
+// }
+/* attachEvent was the traditional method used in the time of Internet Explorer.
+jQuery - onEventListener */
+
+document.getElementById('vegas').addEventListener('click', function(e) {
+    // alert ("vegas clicked")
+    console.log(e);
+    
+},false)  // false is the default parameter called as Event propagation. It has two context i. evnet bubbling (false), ii. event captureing(true).
+
+/* types, timestamp, defaultPrevented, 
+tragrt, toElement, srcElement, currentTarget,
+clientX, clientY, screenX, screenY
+altkey, cltrlkey, shieftkey, keycode */
+
+document.getElementById('image').addEventListener('click', function(e) {
+    console.log("clicked inside the ul");
+    
+},true) // captureing
+document.getElementById('vegas').addEventListener('click', function(e) {
+    // e.stopPropagation()
+    console.log("vegas clicked");
+},false) 
+
+document.getElementById('google').addEventListener('click',function(e){
+    e.preventDefault()
+    console.log("google clicked");
+    e.stopPropagation()
+},false)
+
+document.querySelector('#image').addEventListener('click', function(e){
+    console.log(e.target.tagName);
+    if(e.target.tagName === 'IMG'){
+        console.log(e.target.id);
+        
+        let removeIt = e.target.parentNode
+        removeIt.remove()
+    }
+    
+},false)
 </script>
 </html>
